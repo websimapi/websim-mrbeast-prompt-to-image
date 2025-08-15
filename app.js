@@ -11,6 +11,8 @@ const galleryEl = document.getElementById("gallery");
 const surpriseBtn = document.getElementById("surprise");
 const generateBtn = document.getElementById("generate");
 
+const MRBEAST_CANON = `Ultra-realistic cinematic portrait of MrBeast (Jimmy Donaldson), a tall Caucasian male in his mid-20s with a friendly yet confident demeanor, short dark brown hair styled casually with a slight wave, neatly trimmed light brown beard and mustache, bright blue eyes with a kind sparkle, and a warm inviting smile; wearing a casual hoodie in bold colors (black with a turquoise logo), standing slightly angled toward the camera with one hand gesturing outward as if explaining something exciting; soft diffused studio lighting with subtle rim light outlining his figure, hyper-detailed skin texture with natural tones, faint freckles, and realistic shadows; background softly blurred with vibrant colors and bokeh lights evoking a celebratory, high-energy atmosphere; shallow depth of field focused sharply on his face; cinematic 8K photorealistic style, promotional, charismatic YouTube personality.`;
+
 let conversationHistory = [];
 let items = [];
 
@@ -79,6 +81,7 @@ Guidelines:
 - Prefer positive, cinematic, high-detail phrasing; avoid gore/NSFW/violence.
 - Include visual style notes only if helpful (lighting, composition), keep concise.
 - Do not add text overlays unless explicitly asked.
+- When depicting MrBeast, ground his appearance with this reference (summarize only the essentials needed for the scene): ${MRBEAST_CANON}
 `;
   const user = [
     { type: "text", text: `User idea: ${userText}` }
@@ -130,7 +133,7 @@ form.addEventListener("submit", async (e) => {
   try {
     setLoading(true);
     const finalPrompt = await llmPromptTransform(userText);
-    const fullPrompt = `${finalPrompt} — ensure MrBeast is clearly incorporated in a natural, context-appropriate way. High quality, detailed, clean composition.`;
+    const fullPrompt = `${finalPrompt} — ensure MrBeast is clearly incorporated in a natural, context-appropriate way. Use this appearance reference for MrBeast: ${MRBEAST_CANON} High quality, detailed, clean composition.`;
 
     const result = await websim.imageGen({
       prompt: fullPrompt,
@@ -165,5 +168,3 @@ promptEl.addEventListener("keydown", (e) => {
     generateBtn.click();
   }
 });
-/* ...existing code... */
-
