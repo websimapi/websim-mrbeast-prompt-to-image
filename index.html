@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ...existing content... -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MrBeast Prompt-to-Image</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "animejs": "https://esm.sh/animejs@3.2.1/lib/anime.es.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- ...existing content... -->
+  <header class="site-header" role="banner">
+    <h1 class="title">Type anything. It manifests—with MrBeast.</h1>
+    <p class="subtitle">Every prompt becomes an AI image that cleverly incorporates MrBeast.</p>
+  </header>
+
+  <main class="container" role="main">
+    <section class="panel" aria-label="Prompt to Image">
+      <form id="promptForm" class="prompt-form" autocomplete="off">
+        <label for="prompt" class="visually-hidden">Prompt</label>
+        <textarea id="prompt" name="prompt" rows="3" placeholder="e.g., a cozy library filled with floating books"></textarea>
+
+        <div class="controls-row">
+          <div class="control">
+            <label for="ratio">Aspect ratio</label>
+            <select id="ratio" name="ratio">
+              <option>1:1</option>
+              <option>16:9</option>
+              <option>9:16</option>
+              <option>4:5</option>
+              <option>5:4</option>
+              <option>3:2</option>
+              <option>2:3</option>
+              <option>4:3</option>
+              <option>3:4</option>
+              <option>21:9</option>
+              <option>9:21</option>
+            </select>
+          </div>
+          <div class="control">
+            <label for="seed">Seed</label>
+            <input id="seed" name="seed" type="number" min="0" step="1" placeholder="random">
+          </div>
+          <div class="spacer"></div>
+          <button type="button" id="surprise" class="ghost-btn" aria-label="Surprise me">Surprise me</button>
+          <button type="submit" id="generate" class="primary-btn">Generate</button>
+        </div>
+
+        <p class="hint">Tip: Be specific. We’ll automatically weave MrBeast into the scene in a fun, fitting way.</p>
+      </form>
+    </section>
+
+    <section class="panel" aria-live="polite">
+      <div id="status" class="status hidden" role="status">
+        <div class="spinner" aria-hidden="true"></div>
+        <span class="status-text">Manifesting your idea…</span>
+      </div>
+      <div id="error" class="error hidden" role="alert"></div>
+
+      <div id="gallery" class="gallery" aria-label="Generated images"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footnote">Built for playful imagination. Clean design. Simple animations. Always MrBeast.</p>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+  <!-- ...existing content... -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
