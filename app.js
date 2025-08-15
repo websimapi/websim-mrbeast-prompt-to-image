@@ -72,18 +72,6 @@ Guidelines:
   return prompt;
 }
 
-function pickSurprisePrompt() {
-  const ideas = [
-    "a futuristic city built on waterfalls at golden hour",
-    "a serene tea house floating on clouds",
-    "a tiny astronaut exploring a giant houseplant jungle",
-    "a library where constellations form between shelves",
-    "a cozy cabin during a glittering snowstorm",
-    "a bustling ramen street market in neon rain",
-  ];
-  return ideas[Math.floor(Math.random() * ideas.length)];
-}
-
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const userText = (promptEl.value || "").trim();
@@ -101,11 +89,6 @@ form.addEventListener("submit", async (e) => {
   } finally {
     setLoading(false);
   }
-});
-
-surpriseBtn.addEventListener("click", () => {
-  promptEl.value = pickSurprisePrompt();
-  anime({ targets: promptEl, scale: [1, 1.01], duration: 120, direction: "alternate", easing: "easeOutQuad" });
 });
 
 promptEl.addEventListener("keydown", (e) => {
